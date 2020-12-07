@@ -1,0 +1,36 @@
+syntax="proto3";
+
+service CitiesGameService {
+  rpc Greeter (UserName) returns (UserReply) {}
+  rpc LobbyReady (UserName) returns (GameDone) {}
+  rpc GameBody (UserGame) returns (GameStatus) {}
+  rpc CityName (UserName) returns (City) {}
+}
+
+message City {
+  string city = 1;
+}
+
+message UserGame {
+  string username = 1;
+  string city_word = 2;
+}
+
+message GameStatus {
+  string message = 1;
+  bool game_end = 2;
+}
+
+message GameDone {
+  string message = 1;
+  bool done_status = 2;
+}
+
+message UserName {
+  string username = 1;
+}
+
+message UserReply {
+  string greeting_reply = 1;
+}
+
